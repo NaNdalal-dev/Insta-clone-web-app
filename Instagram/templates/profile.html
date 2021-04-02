@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<table class="table">
+<tr>
+		<td>
+			<img src="{{ profile.profilePic }}" style="border-radius: 50%" class="img-fluid" width="200" height="200" />
+		</td>
+</tr>
+</table>
+<table class="table">
+	<tr>
+		<td>
+			<h4 class="text text-muted">{{ uname }}
+			{% if profile.is_verified %}
+			<span class="text text-primary"><span class="glyphicon glyphicon-ok"></span></span>
+			{% endif %}
+			</h4>
+			<small class="text text-muted">
+				{% if profile.business_category_name %}
+					{{ profile.business_category_name }}
+				{% endif %}
+			</small>
+			<h3 class="text">{{ profile.full_name }}</h3>
+		</td>
+	</tr>
+
+	{% if profile.biography and profile.putBio %}
+	<tr>
+		<td>
+			{% for bio in profile.biography %}
+					{{ bio }}<br>
+			{% endfor %}
+		</td>
+	</tr>
+	{% endif %}
+	{% if profile.exURL %}
+		<tr>
+			<td>
+				<a href="{{ profile.exURL }}">{{ profile.exURL }}</a>
+			</td>
+		</tr>
+	{% endif %}
+</table>
+
+<table class="table">
+	<tr>
+		
+		<td>
+			{{ profile.posts }}<br>
+			<b>Posts</b>
+		</td>
+
+		<td>
+			{{ profile.followers }}<br>
+			<b>Followers</b>
+		</td>
+	
+		<td>
+			{{ profile.followees }}<br>
+			 <b>Following</b>
+		</td>
+
+	</tr>
+</table>
+<center>
+	{% if is_private %}
+			  <b class="text-secondary">(This account is private)</b><br>
+			<!--img src="https://cdn.onlinewebfonts.com/svg/img_227.png" width="250" height="250" /-->
+			<h1 class="text text-danger"><span class="glyphicon glyphicon-eye-close"></span></h1>
+	{% endif %}
+</center>
+</div>
+{% endblock %}
