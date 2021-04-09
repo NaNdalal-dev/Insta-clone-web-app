@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<img src="{% static '/connectionError.png' %}" alt="connectionError" height="300px" width="700px"/>  
+<div class="container">
+	
+<h1 class="text text-danger">
+	<span class="glyphicon glyphicon-ban-circle"></span><br>Error!<br>Check your internet connection 
+</h1>
+</div>
+{% endblock %}

@@ -2,7 +2,7 @@ from instaloader import Instaloader
 import instaloader
 def getFollowList(num):
 	if num < 10000:
-		return num
+		return str(num)
 	elif num >= 10000 and num < 1000000:
 		return str(round(num/1000,1))+'K'
 	elif num >= 1000000 and num < 1000000000:
@@ -29,3 +29,26 @@ class getIgProfile:
 		self.business_category_name = profile.business_category_name
 		self.exURL = profile.external_url
 
+
+class featured:
+	def popularcelebs(self):
+		L = Instaloader()
+		accounts = ['cristiano','therock']
+		""" 'arianagrande', 'kyliejenner', 
+		'selenagomez', 'kimkardashian', 'leomessi']"""
+		self.popAccounts = []
+		for account in accounts:
+			self.popAccounts.append(getIgProfile(account))
+		return self.popAccounts
+
+	def popularPages(self):
+		pass
+
+	def popularAthletes(self):
+		pass
+
+	def popularActors(self):
+		pass
+
+	def popularModels(self):
+		pass

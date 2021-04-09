@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse,HttpResponseBadRequest
-from .InstaGram import getIgProfile
-from instaloader import ProfileNotExistsException
+from django.http import HttpResponse, HttpResponseBadRequest
+from .InstaGram import getIgProfile, featured, getFollowList
+from instaloader import ProfileNotExistsException, ConnectionException
+
 def home(request):
-	return render(request,"home.html",{'title':'Instagram clone'})
+	popAcc = featured()
+	popAcc = popAcc.popularcelebs()
+
+	return render(request,"home.html",{'title':'Instagram clone','popAcc':popAcc, 'getFollowList':getFollowList})
+
 def getUser(request):
 	try:
 
@@ -14,7 +19,10 @@ def getUser(request):
 			'uname' : user,
 			'profile':profile
 		}
-		print(type(profile.exURL))
-		return render(request,"profile.html",details)
+		return render(request, "profile.html", details)
+
+	except ConnectionException:
+		return render(request, 'ConnectionError.html',{'title':'No Connection'})
+
 	except ProfileNotExistsException:
-		return HttpResponse(ProfileNotExistsException)
+		return render(request, "profileNotFound.html",{'title':'Not found'})

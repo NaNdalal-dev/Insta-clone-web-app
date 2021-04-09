@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <form action="user" method="get">
 	<table width="40%">
 		<tr>
@@ -14,8 +15,20 @@
 				<input type="submit" name="get" value="get" class="btn btn-primary">
 			</td>
 		</tr>
-	</table>
-	
-		
+	</table>			
 </form>
+
+
+	<h2>Popular instagram accounts:</h2>
+	<div class="container">
+				{% for acc in popAcc %}
+	<div id="d1">
+				<img src="{{ acc.profilePic}}" width="120" height="120" style="border-radius: 80px;"><br>
+				<b> {{ acc.full_name }}</b>
+				<br>
+					{{ acc.followers }} followers 
+				<br>
+	</div>
+				{% endfor %}
+	</div>		
 {% endblock %}

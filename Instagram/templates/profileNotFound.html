@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+	<h1><a href="/"><span class="glyphicon glyphicon-arrow-left"></span>Home</a></h1>
+
+<h1 class="text text-danger">
+
+	<img src="{% static '/igBroke.jpeg' %}" alt="igBroke" height="300px" width="700px"/>  
+	
+	<span class="glyphicon glyphicon-ban-circle"></span><br>Error!<br>This Profile does not exist!
+</h1>
+</div>
+
+{% endblock %}
