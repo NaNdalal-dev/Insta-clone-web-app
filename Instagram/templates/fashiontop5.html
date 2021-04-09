@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text text-primary">Popular Fashion influencers:</h2>
+	<div class="container">
+		<table class="table" width="50%">
+			<tr>
+				{% for acc in fashionPages %}
+					<td scope="row">
+						<img src="{{ acc.profilePic}}" width="120" height="120" style="border-radius: 80px;">
+						<br>
+						<b> {{ acc.full_name }}</b>
+						<br>
+						{{ acc.followers }} followers 
+						<br>
+					</td>
+					{% endfor %}
+			</tr>
+		</table>
+	</div>
+
+{% endblock %}

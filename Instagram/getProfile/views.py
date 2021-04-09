@@ -1,19 +1,27 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseBadRequest
-from .InstaGram import getIgProfile, featured, getFollowList
+from .InstaGram import getIgProfile, featured
 from instaloader import ProfileNotExistsException, ConnectionException
 
 def home(request):
-	popAcc = featured()
-	popAcc = popAcc.popularcelebs()
+	'''acc = featured()
+				popAcc = acc.popularcelebs()
+				fash = acc.fashionPages()
+				print(fash)
+				accDetails = {
+						'title':'Instagram clone',
+						'popAcc':popAcc,
+						'fashionPages':fash
+						}'''
 
-	return render(request,"home.html",{'title':'Instagram clone','popAcc':popAcc, 'getFollowList':getFollowList})
+	return render(request,"home.html",{'title':'Instagram'})
 
 def getUser(request):
 	try:
 
 		user = request.GET['uname']
 		profile = getIgProfile(user)
+		fash = f
 		details = {
 			'title':f"{user}",
 			'uname' : user,

@@ -18,17 +18,12 @@
 	</table>			
 </form>
 
+<div class="container">
+	
+	<a href="#" class="btn btn-link"><h1>Popular instagram accounts:</h1></a>
+	<br>
+	<a href="#" class="btn btn-link"><h1>Popular Fashion influencers:</h1></a>
 
-	<h2>Popular instagram accounts:</h2>
-	<div class="container">
-				{% for acc in popAcc %}
-	<div id="d1">
-				<img src="{{ acc.profilePic}}" width="120" height="120" style="border-radius: 80px;"><br>
-				<b> {{ acc.full_name }}</b>
-				<br>
-					{{ acc.followers }} followers 
-				<br>
-	</div>
-				{% endfor %}
-	</div>		
+</div>	
+
 {% endblock %}

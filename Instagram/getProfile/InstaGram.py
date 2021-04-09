@@ -29,17 +29,23 @@ class getIgProfile:
 		self.business_category_name = profile.business_category_name
 		self.exURL = profile.external_url
 
-
+L = Instaloader()
 class featured:
 	def popularcelebs(self):
-		L = Instaloader()
-		accounts = ['cristiano','therock']
-		""" 'arianagrande', 'kyliejenner', 
-		'selenagomez', 'kimkardashian', 'leomessi']"""
-		self.popAccounts = []
+		
+		accounts = ['cristiano','therock', 'arianagrande', 'kyliejenner','selenagomez', 'kimkardashian','leomessi']
+		
+		popAccounts = []
 		for account in accounts:
-			self.popAccounts.append(getIgProfile(account))
-		return self.popAccounts
+			popAccounts.append(getIgProfile(account))
+		return popAccounts
+
+	def fashionPages(self):
+		accounts = ['camilacoelho', 'negin_mirsalehi', 'sincerelyjules', 'weworewhat', 'carodaur']
+		popFashAccounts = []
+		for account in accounts:
+			popFashAccounts.append(getIgProfile(account))
+		return popFashAccounts
 
 	def popularPages(self):
 		pass
